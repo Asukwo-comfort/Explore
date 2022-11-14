@@ -13,6 +13,7 @@ import coil.transform.RoundedCornersTransformation
 import com.kulex.explorer.R
 import com.kulex.explorer.databinding.CountryItemBinding
 import com.kulex.explorer.models.CountryItemItem
+import com.kulex.explorer.view.fragments.CountryListFragmentDirections
 
 class CountriesAdapter : RecyclerView.Adapter<CountriesAdapter.CountryViewHolder>(), Filterable {
     private var countryList: ArrayList<CountryItemItem> = ArrayList()

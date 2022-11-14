@@ -41,7 +41,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
 
     // version 1.6.1 because of this error "Can't determine type for tag '<macro name="m3_comp_bottom_app_bar_container_color">?attr/colorSurface</macro>'" that appears when I update the version to 1.7.0
-    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     // Architectural Components

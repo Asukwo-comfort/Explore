@@ -1,8 +1,7 @@
 package com.kulex.explorer.di
 
-import android.provider.SyncStateContract
 import com.kulex.explorer.network.ApiService
-import com.kulex.explorer.util.Constants.Companion.BASE_URL
+import com.kulex.explorer.util.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -36,7 +35,7 @@ object HiltModule {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
-            .baseUrl(SyncStateContract.Constants.BASE_URL)
+            .baseUrl(Constants.BASE_URL)
             .build()
     }
 
