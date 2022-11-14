@@ -1,7 +1,9 @@
 package com.kulex.explorer.viewmodel
 
 import androidx.lifecycle.*
+import com.kulex.explorer.models.CountryItem
 import com.kulex.explorer.repository.CountriesRepository
+import com.kulex.explorer.util.LoadingState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.io.IOException
@@ -15,8 +17,8 @@ class CountryDetailsViewModel @Inject constructor(
 
     private val countryName = savedStateHandle.get<String>("countryName")
 
-    private val _countryDetailsObservable = MutableLiveData<LoadingState<CountriesApiResponse>>()
-    val countryDetailsObservable : LiveData<LoadingState<CountriesApiResponse>> = _countryDetailsObservable
+    private val _countryDetailsObservable = MutableLiveData<LoadingState<CountryItem>>()
+    val countryDetailsObservable : LiveData<LoadingState<CountryItem>> = _countryDetailsObservable
 
 
     fun fetchCountryDetails(countryName:String) = viewModelScope.launch {

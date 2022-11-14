@@ -12,8 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.switchmaterial.SwitchMaterial
-import com.kulex.explorecountries.R
-import com.kulex.explorecountries.databinding.FragmentCountryListBinding
 import com.kulex.explorer.R
 import com.kulex.explorer.adapter.CountriesAdapter
 import com.kulex.explorer.databinding.FragmentCountryListBinding

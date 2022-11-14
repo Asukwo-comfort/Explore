@@ -4,7 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.kulex.explorer.models.CountryItem
 import com.kulex.explorer.repository.CountriesRepository
+import com.kulex.explorer.util.LoadingState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.io.IOException
@@ -15,11 +17,11 @@ class CountriesViewModel @Inject constructor(
     private val repository: CountriesRepository
 ) : ViewModel() {
 
-    private var _countriesObservable = MutableLiveData<LoadingState<CountriesApiResponse>>()
-    val countriesObservable: LiveData<LoadingState<CountriesApiResponse>> = _countriesObservable
+    private var _countriesObservable = MutableLiveData<LoadingState<CountryItem>>()
+    val countriesObservable: LiveData<LoadingState<CountryItem>> = _countriesObservable
 
-    private var _countriesSearchObservable = MutableLiveData<LoadingState<CountriesApiResponse>>()
-    val countriesSearchObservable: LiveData<LoadingState<CountriesApiResponse>> =
+    private var _countriesSearchObservable = MutableLiveData<LoadingState<CountryItem>>()
+    val countriesSearchObservable: LiveData<LoadingState<CountryItem>> =
         _countriesSearchObservable
 
     fun searchCountry(countryName: String) = viewModelScope.launch {

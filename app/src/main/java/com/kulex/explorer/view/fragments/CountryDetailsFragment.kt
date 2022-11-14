@@ -10,11 +10,11 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import coil.load
 import coil.transform.RoundedCornersTransformation
-import com.kev.explore.R
-import com.kev.explore.databinding.FragmentCountryDetailsBinding
-import com.kev.explore.models.CountryItem
-import com.kev.explore.util.LoadingState
-import com.kev.explore.viewmodel.CountryDetailsViewModel
+import com.kulex.explorer.R
+import com.kulex.explorer.databinding.FragmentCountryDetailsBinding
+import com.kulex.explorer.models.CountryItemItem
+import com.kulex.explorer.util.LoadingState
+import com.kulex.explorer.viewmodel.CountryDetailsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -69,7 +69,7 @@ class CountryDetailsFragment : Fragment(R.layout.fragment_country_details) {
         }
     }
 
-    private fun bindUI(country: CountryItem) {
+    private fun bindUI(country: CountryItemItem) {
 
 
         binding.countryNameTv.text = country.name.official

@@ -12,10 +12,11 @@ import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.kulex.explorer.R
 import com.kulex.explorer.databinding.CountryItemBinding
+import com.kulex.explorer.models.CountryItemItem
 
 class CountriesAdapter : RecyclerView.Adapter<CountriesAdapter.CountryViewHolder>(), Filterable {
-    private var countryList: ArrayList<CountryItem> = ArrayList()
-    private var countryListFiltered: ArrayList<CountryItem> = ArrayList()
+    private var countryList: ArrayList<CountryItemItem> = ArrayList()
+    private var countryListFiltered: ArrayList<CountryItemItem> = ArrayList()
 
     override fun getFilter(): Filter {
 
@@ -23,7 +24,7 @@ class CountriesAdapter : RecyclerView.Adapter<CountriesAdapter.CountryViewHolder
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charString = constraint.toString()?: ""
                 if (charString.isEmpty()) countryListFiltered = countryList else{
-                    val filteredList = ArrayList<CountryItem>()
+                    val filteredList = ArrayList<CountryItemItem>()
                     countryList
                         .filter {
                             (it.name.official.contains(constraint!!)) or (it.name.official.contains(constraint))
@@ -39,7 +40,7 @@ class CountriesAdapter : RecyclerView.Adapter<CountriesAdapter.CountryViewHolder
                 countryListFiltered = if (results?.values == null)
                     ArrayList()
                 else
-                    results.values as ArrayList<CountryItem>
+                    results.values as ArrayList<CountryItemItem>
                 notifyDataSetChanged()
 
             }
@@ -81,12 +82,12 @@ class CountriesAdapter : RecyclerView.Adapter<CountriesAdapter.CountryViewHolder
         return asyncListDiffer.currentList.size
     }
 
-    private val diffUtil = object : DiffUtil.ItemCallback<CountryItem>() {
-        override fun areItemsTheSame(oldItem: CountryItem, newItem: CountryItem): Boolean {
+    private val diffUtil = object : DiffUtil.ItemCallback<CountryItemItem>() {
+        override fun areItemsTheSame(oldItem: CountryItemItem, newItem: CountryItemItem): Boolean {
             return oldItem.name == newItem.name
         }
 
-        override fun areContentsTheSame(oldItem: CountryItem, newItem: CountryItem): Boolean {
+        override fun areContentsTheSame(oldItem: CountryItemItem, newItem: CountryItemItem): Boolean {
             return oldItem == newItem
         }
     }
